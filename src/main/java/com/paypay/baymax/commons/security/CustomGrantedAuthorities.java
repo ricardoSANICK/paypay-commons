@@ -1,0 +1,42 @@
+package com.paypay.baymax.commons.security;
+
+import org.springframework.security.core.GrantedAuthority;
+
+public enum CustomGrantedAuthorities implements GrantedAuthority {
+	
+	ROLE_ACCESO("ACCESO"), 
+	ROLE_ACCESO_BITACORA("ACCESO BITACORA"),
+	ROLE_ACCESO_REPORTES_AUDITORIA("ACCESO REPORTES AUDITORÍA"), 
+	ROLE_ACCESO_CATALOGOS("ACCESO CATALOGOS GENERALES"),
+	ROLE_MODIFICAR_CATALOGOS("MODIFICAR CATALOGOS"), 
+	ROLE_ACCESO_AUDITORIA("ACCESO AUDITORIA"),
+	ROLE_ACCESO_SEGURIDAD("ACCESO SEGURIDAD"), 
+	ROLE_MODIFICAR_SEGURIDAD("MODIFICAR SEGURIDAD"),
+	ROLE_ACCESO_ELIMINAR_PERFILES("ELIMINAR PERFILES"), 
+	ROLE_ACCESO_MONITOR_CORREOS("ACCESO MONITOR CORREOS"),
+	ROLE_ACCESO_PARAMETROS("ACCESO PARAMETROS"), 
+	ROLE_MODIFICAR_PARAMETROS("MODIFICAR PARAMETROS"),
+	ROLE_ACCESO_PLANTILLA_CORREO("ACCESO PLANTILLA CORREO"),
+	ROLE_MODIFICAR_PLANTILLA_CORREO("MODIFICAR PLANTILLA CORREO"),
+	ROLE_AGREGAR_PLANTILLA_CORREO("AGREGAR PLANTILLA CORREO"), 
+	ROLE_DESCARGA_ARCHIVOS("DESCARGA DE ARCHIVOS"),
+	ROLE_ACCESO_DASHBOARD("ACCESO DASHBOARD");
+
+	private String descripcion;
+
+	private CustomGrantedAuthorities(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getAuthority() {
+		return name();
+	}
+
+	public String getShortAuthority() {
+		return name().replaceAll("ROLE_", "");
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+}
